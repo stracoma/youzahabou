@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Recherche de Fichiers
+Comment=Une application Flutter de recherche de fichiers.
+Exec=/usr/bin/rechercher %F
+Icon=rechercher
+Terminal=false
+Type=Application
+Categories=Utility;GTK;Office;

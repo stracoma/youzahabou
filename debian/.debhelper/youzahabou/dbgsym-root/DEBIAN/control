@@ -1,0 +1,13 @@
+Package: youzahabou-dbgsym
+Package-Type: ddeb
+Source: youzahabou
+Version: 1.0.0
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: jonass jonass <younesoft63@gmail.com>
+Installed-Size: 28
+Depends: youzahabou (= 1.0.0)
+Section: debug
+Priority: optional
+Description: debug symbols for youzahabou
+Build-Ids: c3bd9913ce82c602c37a9d7812d1417ccf33fb9b
