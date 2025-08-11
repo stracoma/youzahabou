@@ -1,7 +1,7 @@
 #include "my_application.h"
-
+#include "../youzahabou_icon.h"  // Ton fichier avec l'icône embarquée
+#include <gdk-pixbuf/gdk-pixbuf.h>
 #include <flutter_linux/flutter_linux.h>
-#include <gtk/gtk.h>
 
 struct _MyApplication {
   GtkApplication parent_instance;
@@ -11,6 +11,21 @@ G_DEFINE_TYPE(MyApplication, my_application, GTK_TYPE_APPLICATION)
 
 static void my_application_activate(GApplication* application) {
   GtkWindow* window = GTK_WINDOW(gtk_application_window_new(GTK_APPLICATION(application)));
+
+  // Charger l’icône à partir des données intégrées
+  GBytes* icon_bytes = g_bytes_new_static(___images_youzahabou_icon_png, ___images_youzahabou_icon_png_len);
+  GInputStream* stream = g_memory_input_stream_new_from_bytes(icon_bytes);
+  GdkPixbuf* icon = gdk_pixbuf_new_from_stream(stream, NULL, NULL);
+
+  if (!icon) {
+    g_printerr("❌ Erreur : l'icône n’a pas pu être chargée depuis les données.\n");
+  } else {
+    gtk_window_set_icon(GTK_WINDOW(window), icon);
+    g_object_unref(icon);
+  }
+
+  g_object_unref(stream);
+  g_bytes_unref(icon_bytes);
 
   gtk_window_set_title(window, "youzahabou");
   gtk_window_set_default_size(window, 500, 680);

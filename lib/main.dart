@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:youzahabou/anemie/main_anemie.dart';
 import 'tsh/main.dart';
-import 'grossesse/main_grossesse.dart'; // Ensure this file exists and contains MyApp_grossesse class
+import 'grossesse/main_grossesse.dart';
+import'diabeto/diabeto.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -87,6 +88,25 @@ class _MyAppState extends State<MyApp> {
                   );
                 },
               ),
+              SizedBox(height: 20), // Espace entre les boutons
+
+              Builder(
+                builder: (context) {
+                  return ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      fixedSize: Size(200, 50), // Largeur 200px, hauteur 50px
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => diabete()),
+                      );
+                    },
+                    child: Text('Diabète'),
+                  );
+                },
+              ),
+
             ],
           ),
         ),

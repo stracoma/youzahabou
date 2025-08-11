@@ -1,3 +1,0 @@
-#!/bin/sh
-export LD_LIBRARY_PATH="/usr/lib/youzahabou/bundle/lib:\D_LIBRARY_PATH"
-exec /usr/lib/youzahabou/bundle/youzahabou "\override_dh_auto_install"

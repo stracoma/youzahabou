@@ -1,0 +1,9 @@
+Package: youzahabou
+Version: 1.0
+Section: base
+Priority: optional
+Architecture: amd64
+Depends: libgtk-3-0
+Maintainer: jonass <jonass@example.com>
+Description: Application Flutter Youzahabou
+

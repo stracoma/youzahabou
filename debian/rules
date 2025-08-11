@@ -1,56 +1,10 @@
 #!/usr/bin/make -f
+export DH_OPTIONS
+export DH_DISABLE_DWZ=1
 
-# Build system for Flutter applications in debian/rules
-
-# Override dh_auto_clean to remove Flutter's build artifacts
-override_dh_auto_clean:
-	dh_clean
-	flutter clean
-
-# Override dh_auto_build to build the Flutter application for Linux release
-override_dh_auto_build:
-	flutter build linux --release
-
-# Override dh_auto_install to copy Flutter's built files into the debian package structure
-override_dh_auto_install:
-	# Create the installation directories
-	mkdir -p debian/youzahabou/usr/bin
-	mkdir -p debian/youzahabou/usr/share/applications
-	mkdir -p debian/youzahabou/usr/share/icons/hicolor/scalable/apps
-	mkdir -p debian/youzahabou/usr/share/icons/hicolor/256x256/apps
-	mkdir -p debian/youzahabou/etc/ld.so.conf.d/
-	mkdir -p debian/youzahabou/usr/lib/youzahabou/bundle
-
-	# Add library path to ld.so configuration
-	echo "/usr/lib/youzahabou/bundle/lib" > debian/youzahabou/etc/ld.so.conf.d/youzahabou.conf
-            
-	# Copy the entire Flutter bundle (executable, data, lib)
-	cp -a build/linux/x64/release/bundle/* debian/youzahabou/usr/lib/youzahabou/bundle/
-
-	# Create the launcher script in /usr/bin
-	install -m 755 -D /dev/null debian/youzahabou/usr/bin/youzahabou
-	echo "#!/bin/sh" > debian/youzahabou/usr/bin/youzahabou
-	echo "export LD_LIBRARY_PATH=\"/usr/lib/youzahabou/bundle/lib:\$LD_LIBRARY_PATH\"" >> debian/youzahabou/usr/bin/youzahabou
-	echo "exec /usr/lib/youzahabou/bundle/youzahabou \"\$@\"" >> debian/youzahabou/usr/bin/youzahabou
-
-	# Create the .desktop file for the application menu
-	install -m 644 -D /dev/null debian/youzahabou/usr/share/applications/youzahabou.desktop
-	echo "[Desktop Entry]" > debian/youzahabou/usr/share/applications/youzahabou.desktop
-	echo "Name=Youzahabou" >> debian/youzahabou/usr/share/applications/youzahabou.desktop                                                 # <-- CORRECTION ICI : Nom de l'application dans le menu
-	echo "Comment=diagnostic anémie, grossesse et tsh" >> debian/youzahabou/usr/share/applications/youzahabou.desktop                          # <-- CORRECTION ICI : Nouvelle description
-	echo "Exec=/usr/bin/youzahabou %F" >> debian/youzahabou/usr/share/applications/youzahabou.desktop
-	echo "Icon=youzahabou" >> debian/youzahabou/usr/share/applications/youzahabou.desktop
-	echo "Terminal=false" >> debian/youzahabou/usr/share/applications/youzahabou.desktop
-	echo "Type=Application" >> debian/youzahabou/usr/share/applications/youzahabou.desktop
-	echo "Categories=Utility;GTK;Office;" >> debian/youzahabou/usr/share/applications/youzahabou.desktop
-
-	# Copy the icon
-	cp -a youzahabou_icon.png debian/youzahabou/usr/share/icons/hicolor/256x256/apps/youzahabou.png
-
-# Override dh_dwz to skip it
-override_dh_dwz:
-	# Do nothing to skip dh_dwz
-
-# This is the standard call to dh, which will now use our overrides
 %:
-	dh $@ --no-dwz
+	dh $@ --no-parallel
+
+override_dh_dwz:
+	@echo "dh_dwz désactivé"
+

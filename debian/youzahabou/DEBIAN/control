@@ -1,10 +1,11 @@
 Package: youzahabou
-Version: 1.0.0
+Version: 1.0
 Architecture: amd64
-Maintainer: jonass jonass <younesoft63@gmail.com>
-Installed-Size: 22627
-Depends: libatk1.0-0t64 (>= 1.32.0), libc6 (>= 2.34), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.2.4), libepoxy0 (>= 1.0), libfontconfig1 (>= 2.12.6), libgcc-s1 (>= 3.0), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0t64 (>= 2.79.0), libgtk-3-0t64 (>= 3.21.4), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.29.4), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 4.1.1), zlib1g (>= 1:1.1.4), libgtk-3-0
+Maintainer: ton_nom <younesbis@doctor.com>
+Installed-Size: 22972
+Depends: libatk1.0-0t64 (>= 1.32.0), libc6 (>= 2.34), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.2.4), libepoxy0 (>= 1.0), libfontconfig1 (>= 2.12.6), libgcc-s1 (>= 3.0), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0t64 (>= 2.80.0), libgtk-3-0t64 (>= 3.21.4), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.29.4), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 4.1.1), zlib1g (>= 1:1.1.4), desktop-file-utils
 Section: utils
 Priority: optional
-Description: Une application Flutter de recherche de fichiers.
- Application contenant anémie, tsh et grossesse
+Homepage: https://example.com
+Description: Application Youzahabou
+ Une description courte de ton application.

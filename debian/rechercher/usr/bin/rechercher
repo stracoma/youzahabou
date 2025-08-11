@@ -1,3 +1,0 @@
-#!/bin/sh
-export LD_LIBRARY_PATH="/usr/lib/rechercher/bundle/lib:\D_LIBRARY_PATH"
-exec /usr/lib/rechercher/bundle/rechercher "\override_dh_auto_install"

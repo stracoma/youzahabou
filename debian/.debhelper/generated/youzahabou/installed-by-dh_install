@@ -1,0 +1,4 @@
+./build/linux/x64/release/bundle/data
+./build/linux/x64/release/bundle/lib
+./build/linux/x64/release/bundle/youzahabou
+./debian/usr/share/applications/youzahabou.desktop

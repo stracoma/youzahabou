@@ -1,8 +1,7 @@
 [Desktop Entry]
-Name=Youzahabou
-Comment=diagnostic anémie, grossesse et tsh
-Exec=/usr/bin/youzahabou %F
+Name=youzahabou
+Exec=/usr/share/youzahabou/youzahabou
 Icon=youzahabou
-Terminal=false
 Type=Application
-Categories=Utility;GTK;Office;
+Categories=Utility;
+
