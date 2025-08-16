@@ -74,7 +74,7 @@ class _Hba1cState extends State<Hba1c> {
               child: Text("Calculer"),
             ),
             SizedBox(height: 20),
-            Text(glycemie.toStringAsFixed(2) + " g/L",
+            Text("${glycemie.toStringAsFixed(2)} g/L",
             style:
               TextStyle(fontSize: 32, fontWeight: FontWeight.bold,color: Colors.blue[800]))
           ],
